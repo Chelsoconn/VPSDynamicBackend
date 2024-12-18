@@ -11,14 +11,14 @@ app.use(cors());
 //Database Functionality 
 import { Client } from 'pg';
 import { getAllUsers, getSingleUser } from '../SQLqueries/queries';
-import { MongoClient } from 'mongodb';
+//import { MongoClient } from 'mongodb';
 
 //Database variables 
 const postgresHost = process.env.POSTGRES_HOST;
 const postgresUser = process.env.POSTGRES_USER;
 const postgresDb = process.env.POSTGRES_DB;
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/myapp'; ;
+//const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/myapp'; ;
 
 const client: Client = new Client({
     user: postgresUser,
@@ -39,33 +39,33 @@ client.connect()
 
 
 
-async function seedMongoDB() {
-  const client = new MongoClient(mongoUri);
-  try {
-    await client.connect();
-    console.log('Connected to MongoDB');
+// async function seedMongoDB() {
+//   const client = new MongoClient(mongoUri);
+//   try {
+//     await client.connect();
+//     console.log('Connected to MongoDB');
 
-    const db = client.db('dynamicapp');
-    const usersCollection = db.collection('users');
+//     const db = client.db('dynamicapp');
+//     const usersCollection = db.collection('users');
 
-    // Seed data
-    const users = [
-      { name: 'Alice', email: 'alice@example.com', age: 30 },
-      { name: 'Bob', email: 'bob@example.com', age: 25 },
-      { name: 'Charlie', email: 'charlie@example.com', age: 35 },
-    ];
+//     // Seed data
+//     const users = [
+//       { name: 'Alice', email: 'alice@example.com', age: 30 },
+//       { name: 'Bob', email: 'bob@example.com', age: 25 },
+//       { name: 'Charlie', email: 'charlie@example.com', age: 35 },
+//     ];
 
-    // Insert seed data into MongoDB
-    await usersCollection.insertMany(users);
-    console.log('MongoDB Seed Completed');
-  } catch (err) {
-    console.error('Error seeding MongoDB:', err);
-  } finally {
-    await client.close();
-  }
-}
+//     // Insert seed data into MongoDB
+//     await usersCollection.insertMany(users);
+//     console.log('MongoDB Seed Completed');
+//   } catch (err) {
+//     console.error('Error seeding MongoDB:', err);
+//   } finally {
+//     await client.close();
+//   }
+// }
   
-seedMongoDB();
+// seedMongoDB();
 
 const PORT = 3001;
 
