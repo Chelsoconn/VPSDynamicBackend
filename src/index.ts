@@ -14,16 +14,16 @@ import { getAllUsers, getSingleUser } from '../SQLqueries/queries';
 //import { MongoClient } from 'mongodb';
 
 //Database variables 
-const postgresHost = process.env.POSTGRES_HOST;
-const postgresUser = process.env.POSTGRES_USER;
-const postgresDb = process.env.POSTGRES_DB;
+// const postgresHost = process.env.POSTGRES_HOST;
+// const postgresUser = process.env.POSTGRES_USER;
+// const postgresDb = process.env.POSTGRES_DB;
 
 //const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/myapp'; ;
 
 const client: Client = new Client({
-    user: postgresUser,
-    host: postgresHost,
-    database: postgresDb,
+    user: 'postgres',
+    host: 'localhost',
+    database: 'dynamic',
     port: 5432
 });
 
