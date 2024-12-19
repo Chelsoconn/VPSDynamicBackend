@@ -21,10 +21,10 @@ import { getAllUsers, getSingleUser } from '../SQLqueries/queries';
 //const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/myapp'; ;
 
 const client: Client = new Client({
-    user: 'postgres',//'chelseaoconnor',
-    host: 'localhost',
-    database: 'vpsdynamic',
-    password: 'Ck57320',
+    user: 'postgres',//'chelseaoconnor', postgres
+    host: 'localhost', //
+    database: 'dynamic', //dynamic
+    password: 'Ck57320', 
     port: 5432
 });
 
